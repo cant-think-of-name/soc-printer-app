@@ -9,18 +9,31 @@ import {
     MenuItem,
     Paper,
     Select,
-    Toolbar,
     Typography
 } from "@material-ui/core";
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from "../theme";
 
-const remainingQuota = 100;
-
 class Print extends React.Component {
-  render() {
-    const { classes } = this.props;
-    return (
+    constructor(props) {
+        super(props)
+        this.state = {
+            remainingQuota: 100
+        }
+        this.upload = this.upload.bind(this);
+        this.fileSelectHandler = this.fileSelectHandler.bind(this);
+    }
+
+    upload() {
+        document.getElementById("uploadButton").click();
+    }
+
+    fileSelectHandler() {
+        console.log("upload");
+    }
+
+    render() {
+        return (
             <div>
                 <ThemeProvider theme={theme}>
                     <Paper>
@@ -33,7 +46,7 @@ class Print extends React.Component {
                         </AppBar>
                         <Grid container justify="center" wrap="wrap">
                             <Grid item>
-                                <Typography variant="h6">You have {remainingQuota} pages left this month</Typography>
+                                <Typography variant="h6">You have {this.state.remainingQuota} pages left this month</Typography>
                             </Grid>
                         </Grid>
                         <Grid container justify="center" wrap="wrap">
@@ -61,7 +74,8 @@ class Print extends React.Component {
                         </AppBar>
                         <Grid container justify="center" wrap="wrap">
                             <Grid item>
-                                <Button variant="outlined" color="primary" style={{ textTransform: "none" }}>Upload a file</Button>
+                                <Button variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.upload}>Upload a file</Button>
+                                <input id='uploadButton' hidden type="file" onChange={this.fileSelectHandler} />
                             </Grid>
                         </Grid>
                         <Grid container justify="center" wrap="wrap">
@@ -69,8 +83,8 @@ class Print extends React.Component {
                                 <FormControl>
                                     <InputLabel>Choose printer</InputLabel>               
                                     <Select labelId="label" id="select" >
-                                            <MenuItem value="demo1">Demo Printer #1</MenuItem>
-                                            <MenuItem value="demo2">Demo Printer #2</MenuItem>
+                                        <MenuItem value="demo1">Demo Printer #1</MenuItem>
+                                        <MenuItem value="demo2">Demo Printer #2</MenuItem>
                                     </Select>
                                 </FormControl>
                             </Grid>
@@ -78,13 +92,8 @@ class Print extends React.Component {
                     </Paper>
                 </ThemeProvider>
             </div>
-    );
-  }
+        );
+    }
 }
-/*
-
-                      <Link href="#" color="inherit">
-                        {'color="inherit"'}
-                      </Link>*/
 
 export default Print;
