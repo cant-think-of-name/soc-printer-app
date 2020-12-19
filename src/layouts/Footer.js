@@ -62,10 +62,9 @@ class Footer extends React.Component {
 
     return (
       <div>
-          <div style={style}>
-            <CssBaseline/>
-            <Container component="main" className={classes.main} maxWidth="sm">
-              <Typography variant="h2" component="h1" gutterBottom>
+          <Box style={style}>
+            <Container component="main" className={classes.main}>
+              <Typography variant="h5" component="h1" gutterBottom>
                 Credits to:
               </Typography>
               <Box display="flex" justifyContent="space-between">
