@@ -56,68 +56,63 @@ var style = {
   width: "100%",
 }
 
-var phantom = {
-  display: 'block',
-  padding: '20px',
-  height: '80%',
-  width: '100%',
-}
-
 class Footer extends React.Component {
   render() {
     const { classes } = this.props;
 
     return (
       <div>
-          <div style={phantom} />
           <div style={style}>
             <CssBaseline/>
             <Container component="main" className={classes.main} maxWidth="sm">
               <Typography variant="h2" component="h1" gutterBottom>
                 Credits to:
               </Typography>
-              <Typography variant="h5" component="h2" gutterBottom>
-                Chow Jia Ying:
-                <Typography className={classes.root}>
-                  <Link href="https://www.github.com/C-likethis123" >
-                    GitHub page
-                  </Link>
-                </Typography>
-                <Typography className={classes.root}>
-                  <Link href="https://c-likethis123.github.io/website/" >
-                    Personal page
-                  </Link>
-                </Typography>
-
-                Lim Kang Yee:
-                <Typography className={classes.root}>
-                  <Link href="https://github.com/kangyeelim" >
-                    GitHub page
-                  </Link>
-                </Typography>
-                <Typography className={classes.root}>
-                  <Link href="https://kangyeelim.github.io/aboutme/" >
-                    Personal page
-                  </Link>
-                </Typography>
-
-                Evon Dong Bing Bing:
-                <Typography className={classes.root}>
-                  <Link href="https://github.com/EvonDong" >
-                    GitHub page
-                  </Link>
-                </Typography>
-
-                Michaela Tang::
-                <Typography className={classes.root}>
-                  <Link href="https://github.com/MichaelaTSH" >
-                    GitHub page
-                  </Link>
-                </Typography>
-
-              </Typography>
-              
-            </Container>
+              <Box display="flex" justifyContent="space-between">
+                <Box display="flex" flexDirection="column">
+                    Chow Jia Ying:
+                    <Typography className={classes.root}>
+                      <Link href="https://www.github.com/C-likethis123" >
+                        GitHub page
+                      </Link>
+                    </Typography>
+                    <Typography className={classes.root}>
+                      <Link href="https://c-likethis123.github.io/website/" >
+                        Personal page
+                      </Link>
+                    </Typography>
+                </Box>
+                <Box display="flex" flexDirection="column">
+                    Lim Kang Yee:
+                  <Typography className={classes.root}>
+                    <Link href="https://github.com/kangyeelim" >
+                      GitHub page
+                    </Link>
+                  </Typography>
+                  <Typography className={classes.root}>
+                    <Link href="https://kangyeelim.github.io/aboutme/" >
+                      Personal page
+                    </Link>
+                  </Typography>
+                </Box>
+                <Box display="flex" flexDirection="column">
+                  Evon Dong Bing Bing:
+                  <Typography className={classes.root}>
+                    <Link href="https://github.com/EvonDong" >
+                      GitHub page
+                    </Link>
+                  </Typography>
+                </Box>
+                <Box display="flex" flexDirection="column">
+                  Michaela Tang:
+                  <Typography className={classes.root}>
+                    <Link href="https://github.com/MichaelaTSH" >
+                      GitHub page
+                    </Link>
+                  </Typography>
+                </Box>
+            </Box>
+          </Container>
             <footer className={classes.footer} >
               <Container maxWidth="sm">
                 <Typography variant="body1">My sticky footer can be found here.</Typography>
