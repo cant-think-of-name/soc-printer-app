@@ -5,6 +5,7 @@ A progressive web app to manage printing with the School of Computing, NUS
 ## Tech Stack
 
 This project makes use of React as the frontend framework and Material UI as the UI library.
+The backend makes use of `node-ssh` to manage SSH connections and `fastify` to create a server.
 
 ## Contributing
 
@@ -13,6 +14,8 @@ Clone this repository: `git clone https://github.com/cant-think-of-name/soc-prin
 Install dependencies: `yarn install` or `npm install`. Npm is preferred as this project commits the `package-lock.json` file.
 
 Run this project in development mode: `npm start`
+
+Start the server: `npm run server`
 
 Build the app for production: `npm build`
 
