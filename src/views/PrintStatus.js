@@ -26,6 +26,10 @@ class PrintStatus extends React.Component {
   render() {
     const {uploading, printing, filesToBePrinted} = this.state;
     return (
+<<<<<<< HEAD
+=======
+      <div>
+>>>>>>> Edited suggested changes.
         <Paper>
           <AppBar position="static" alignitems="center" color="primary" style={{ marginBottom: '20px' }}>
             <Grid container justify="center" wrap="wrap">
@@ -71,10 +75,18 @@ class PrintStatus extends React.Component {
             {(uploading || printing ) &&
               <Grid container justify="center" wrap="wrap" style={{ marginTop: '20px' }}>
                 <Grid item>
+<<<<<<< HEAD
                   <Button variant="outlined" color="primary">Cancel</Button>
                 </Grid>
               </Grid>}
         </Paper>
+=======
+                  <Button variant="outlined" color="primary" style={{ textTransform: "none" }}>Cancel</Button>
+                </Grid>
+              </Grid>}
+        </Paper>
+      </div>
+>>>>>>> Edited suggested changes.
     );
   }
 }
