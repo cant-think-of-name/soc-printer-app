@@ -1,6 +1,8 @@
 import React from 'react';
 import { Paper, withStyles, Grid, TextField, Button, FormControlLabel, Checkbox, AppBar,Typography, Toolbar, } from '@material-ui/core';
 import { Face, Fingerprint } from '@material-ui/icons'
+import StateContext from "../context"
+import { withRouter } from "react-router";
 
 const styles = theme => ({
     margin: {
@@ -13,8 +15,8 @@ const styles = theme => ({
 
 
 class Login extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       username: '',
       password: '',
@@ -27,8 +29,28 @@ class Login extends React.Component {
     this.setState({[event.target.id]: event.target.value})
   }
 
-  handleSubmit(event) {
-    event.preventDefault()
+  async handleSubmit(event) {
+    const { history } = this.props
+    const wsConnection = this.context
+    const data = {
+      ...this.state,
+      method: "login",
+    }
+    wsConnection.send(JSON.stringify(data))
+    // if succeed
+    wsConnection.onmessage = msg => {
+      const {data} = msg
+      const {isConnected} = JSON.parse(data)
+      if (isConnected) {
+        history.push("/print")
+      } else {
+        console.log(msg)
+      }
+    }
+    this.setState({
+      username: '',
+      password: ''
+    })
   }
 
   render() {
@@ -70,5 +92,4 @@ class Login extends React.Component {
   }
 }
 
-export default withStyles(styles)(Login);
-// export default Login
+export default withStyles(styles)(withRouter(Login));
