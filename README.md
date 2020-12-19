@@ -10,11 +10,11 @@ This project makes use of React as the frontend framework and Material UI as the
 
 Clone this repository: `git clone https://github.com/cant-think-of-name/soc-printer-app.git`
 
-Install dependencies: `yarn install` or `npm install`. Yarn is preferred as this project commits the `yarn.lock` file instead of the `package-lock.json` file.
+Install dependencies: `yarn install` or `npm install`. Npm is preferred as this project commits the `package-lock.json` file.
 
-Run this project in development mode: `yarn start`
+Run this project in development mode: `npm start`
 
-Build the app for production: `yarn build`
+Build the app for production: `npm build`
 
 Other important information can be found in the README of [Create React App](https://github.com/facebook/create-react-app)
 
@@ -36,4 +36,4 @@ Evon Dong Bing Bing:
 
 Michaela Tang:
 
-- <https://github.com/MichaelaTSH>
+- Github: <https://github.com/MichaelaTSH>
