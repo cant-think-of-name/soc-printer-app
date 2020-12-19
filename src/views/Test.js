@@ -8,11 +8,14 @@ class Test extends Component {
     super(props)
     this.state = {
       commandList: [],
-      command: ''
+      command: '',
+      username: "kangyee",
+      password: "hoolyshitmamas12345"
     }
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     ws.onmessage = msg => {
       this.setState({
         commandList:  [...this.state.commandList, JSON.parse(msg.data)]
@@ -21,7 +24,10 @@ class Test extends Component {
   }
 
   onSend() {
-    let data = {method: "command", command: this.state.command}
+    let data = {method: "command",
+      command: this.state.command,
+      username: this.state.username,
+      password: this.state.password}
     ws.send(JSON.stringify(data))
     this.setState({
       ...this.state,
@@ -38,9 +44,9 @@ class Test extends Component {
     return (
       <>
       {this.state.commandList.map((list, i) => <div key={`history-${i}`}>{list.data}</div>)}
-      <form onSubmit={(event) => event.preventDefault()}>
-        <input 
-        type="text" 
+      <form onSubmit={this.onSubmit}>
+        <input
+        type="text"
         value={this.state.command}
         onChange={(e) => this.setState({command: e.target.value})}
         placeholder="Enter your command"
