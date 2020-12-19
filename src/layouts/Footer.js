@@ -1,7 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Link from '@material-ui/core/Link';
-import { Paper, withStyles, Grid, TextField, Button, AppBar, Typography, Toolbar, CssBaseline, Container} from '@material-ui/core';
+import { withStyles, Box, Link, Typography, Container} from '@material-ui/core';
 
 function Copyright() {
   return (
