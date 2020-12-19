@@ -11,27 +11,18 @@ let theme = createMuiTheme({
   overrides: {
     MuiPaper: {
       root: {
-        margin: "16px",
-        padding: "32px"
+        margin: "0.8rem",
+        padding: "1.6rem"
       }
     },
     MuiButton: {
       root: {  
-        marginTop: "5px"
+        marginTop: "0.5rem"
       }
     },
     MuiFormControl: {
       root: {  
-        minWidth: "130px"
-      }
-    },
-    MuiTypography: {
-      h4: {
-        marginBottom: "4px",
-        marginTop: "4px"
-      },
-      h6: {
-        marginBottom: "2px"
+        minWidth: "10rem"
       }
     }
   }

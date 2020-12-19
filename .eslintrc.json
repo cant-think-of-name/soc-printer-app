@@ -1,8 +1,0 @@
-{
-  "extends": ["plugin:react/recommended", "airbnb"],
-  "rules": {
-    "indent": ["warn", 2],
-    "no-console": "warn",
-    "semi": ["warn", "always"]
-  }
-}
