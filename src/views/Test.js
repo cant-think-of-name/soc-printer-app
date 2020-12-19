@@ -9,8 +9,8 @@ class Test extends Component {
     this.state = {
       commandList: [],
       command: '',
-      username: "kangyee",
-      password: "hoolyshitmamas12345"
+      username: "",
+      password: ""
     }
     this.onSubmit = this.onSubmit.bind(this);
   }
