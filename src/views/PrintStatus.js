@@ -17,8 +17,8 @@ class PrintStatus extends React.Component {
     super();
     this.state = {
       uploading: false,
-      printing: false,
-      filesToBePrinted: 0
+      printing: true,
+      filesToBePrinted: 1
     }
   }
 
@@ -27,57 +27,59 @@ class PrintStatus extends React.Component {
   }
 
   render() {
+    const {uploading, printing, filesToBePrinted} = this.state;
     return (
-            <div>
-                <ThemeProvider theme={theme}>
-                    <Paper>
-                        <AppBar position="static" alignitems="center" color="primary" style={{ marginBottom: '20px' }}>
-                                <Grid container justify="center" wrap="wrap">
-                                    <Grid item>
-                                        <Typography variant="h4">View Printing Status</Typography>
-                                    </Grid>
-                                </Grid>
-                        </AppBar>
-                        {!this.state.uploading && !this.state.printing && <Grid container justify="center" wrap="wrap">
-                            <Grid item>
-                                <Typography variant="h6">Nothing to be printed currently.</Typography>
-                            </Grid>
-                        </Grid>}
-                        {this.state.uploading && !this.state.printing &&
-                          <Grid container justify="center" wrap="wrap">
-                            <Grid item xs={2}>
-                                <Typography variant="h6">Uploading {this.state.filesToBePrinted} file(s)</Typography>
-                            </Grid>
-                            <Grid item>
-                              <HourglassEmptyIcon/>
-                            </Grid>
-                        </Grid>}
-                        {!this.state.uploading && this.state.printing && <div>
-                        <Grid container justify="center" wrap="wrap">
-                          <Grid item xs={2}>
-                              <Typography variant="h6">Uploaded file(s)</Typography>
-                          </Grid>
-                          <Grid item>
-                            <DoneOutlineIcon/>
-                          </Grid>
-                        </Grid>
-                        <Grid container justify="center" wrap="wrap">
-                          <Grid item xs={2}>
-                              <Typography variant="h6">Printing {this.state.filesToBePrinted} file(s)</Typography>
-                          </Grid>
-                          <Grid item>
-                            <HourglassEmptyIcon/>
-                          </Grid>
-                        </Grid>
-                        </div>}
-                        {(this.state.uploading || this.state.printing ) && <Grid container justify="center" wrap="wrap" style={{ marginTop: '20px' }}>
-                            <Grid item>
-                                <Button variant="outlined" color="primary" style={{ textTransform: "none" }}>Cancel</Button>
-                            </Grid>
-                        </Grid>}
-                    </Paper>
-                </ThemeProvider>
-            </div>
+      <div>
+        <Paper>
+          <AppBar position="static" alignitems="center" color="primary" style={{ marginBottom: '20px' }}>
+            <Grid container justify="center" wrap="wrap">
+              <Grid item>
+                <Typography variant="h4">View Printing Status</Typography>
+              </Grid>
+            </Grid>
+          </AppBar>
+            {!uploading && !printing &&
+              <Grid container justify="center" wrap="wrap">
+                <Grid item>
+                  <Typography variant="h6">Nothing to be printed currently.</Typography>
+                </Grid>
+            </Grid>}
+            {uploading && !printing &&
+              <Grid container justify="center" wrap="wrap">
+                <Grid item xs={2}>
+                  <Typography variant="h6">Uploading {filesToBePrinted} file(s)</Typography>
+                </Grid>
+                <Grid item>
+                  <HourglassEmptyIcon/>
+                </Grid>
+              </Grid>}
+            {!uploading && printing &&
+              <div>
+                <Grid container justify="center" wrap="wrap">
+                  <Grid item xs={2}>
+                    <Typography variant="h6">Uploaded file(s)</Typography>
+                  </Grid>
+                  <Grid item>
+                    <DoneOutlineIcon/>
+                  </Grid>
+                </Grid>
+                <Grid container justify="center" wrap="wrap">
+                  <Grid item xs={2}>
+                    <Typography variant="h6">Printing {filesToBePrinted} file(s)</Typography>
+                  </Grid>
+                  <Grid item>
+                    <HourglassEmptyIcon/>
+                  </Grid>
+                </Grid>
+              </div>}
+            {(uploading || printing ) &&
+              <Grid container justify="center" wrap="wrap" style={{ marginTop: '20px' }}>
+                <Grid item>
+                  <Button variant="outlined" color="primary" style={{ textTransform: "none" }}>Cancel</Button>
+                </Grid>
+              </Grid>}
+        </Paper>
+      </div>
     );
   }
 }
