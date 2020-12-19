@@ -52,14 +52,14 @@ class Print extends React.Component {
                         <Grid container justify="center" wrap="wrap">
                             <Grid item xs={2}>
                                 <Typography>
-                                    <Link href="#" >
+                                    <Link href="https://socpay.comp.nus.edu.sg/" variant="body2">
                                         Want coloured printing?
                                     </Link>
                                 </Typography>
                             </Grid>
                             <Grid item>
                                 <Typography>
-                                    <Link href="#" variant="body2">
+                                    <Link href="https://socpay.comp.nus.edu.sg/" variant="body2">
                                         Increase printing quota!
                                     </Link>
                                 </Typography>
