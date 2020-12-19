@@ -25,6 +25,7 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
+  static contextType = StateContext
   handleChange(event) {
     this.setState({[event.target.id]: event.target.value})
   }
@@ -84,7 +85,7 @@ class Login extends React.Component {
                 </Grid>
               </Grid>
               <Grid container justify="center" style={{ marginTop: '10px' }}>
-                <Button variant="outlined" color="primary">Login</Button>
+                <Button variant="outlined" color="primary" onClick={this.handleSubmit}>Login</Button>
               </Grid>
           </div>
         </Paper>
