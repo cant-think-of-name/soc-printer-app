@@ -16,8 +16,17 @@ function Copyright() {
   );
 }
 
-const useStyles = makeStyles((theme) => ({
+const styles = (theme) => ({
   root: {
+    backgroundColor: "#F8F8F8",
+    borderTop: "1px solid #E7E7E7",
+    textAlign: "center",
+    padding: "20px",
+    left: "0",
+    bottom: "0",
+    width: "100%",
+  },
+  links: {
     display: 'flex',
     flexDirection: 'auto',
     minHeight: '100vh',
@@ -124,5 +133,5 @@ class Footer extends React.Component {
 }
 }
 
-export default withStyles(useStyles)(Footer);
+export default withStyles(styles)(Footer);
 
