@@ -1,12 +1,10 @@
-var driver, ssh;
-
-driver = require("node-ssh");
-
-ssh = new driver();
+const { NodeSSH } = require("node-ssh");
+const ssh = new NodeSSH();
 
 const sshConfig = {
-  host: "sunfire-r.comp.nus.edu.sg",
-  username: "",
+  host: "<host name here>",
+  username: "<username here>",
+  password: "<password>"
 };
 
 module.exports = async (ws, req) => {
@@ -16,7 +14,9 @@ module.exports = async (ws, req) => {
     const data = JSON.parse(msg);
     switch (data.method) {
       case "command":
-        shellStream.write(data.command.trim() + "\n");
+        // TODO: Implement event handler
+        console.log(data)
+        // shellStream.write(`${data.command.trim()}\n`);
         break;
     }
   });
