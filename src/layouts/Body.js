@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import Print from "../views/Print"
 import Login from "../views/Login"
+import Test from "../views/Test"
 /**
  * the main page of the app
  * @param {} props 
@@ -13,6 +14,9 @@ function Body(props) {
         <Switch>
           <Route path="/print">
             <Print />
+          </Route>
+          <Route path="/test">
+            <Test />
           </Route>
           <Route path="*">
             <Login />
