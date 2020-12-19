@@ -74,7 +74,7 @@ class Print extends React.Component {
                         </AppBar>
                         <Grid container justify="center" wrap="wrap">
                             <Grid item>
-                                <Button variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.upload}>Upload a file</Button>
+                                <Button variant="outlined" color="primary" onClick={this.upload}>Upload a file</Button>
                                 <input id='uploadButton' hidden type="file" onChange={this.fileSelectHandler} />
                             </Grid>
                         </Grid>

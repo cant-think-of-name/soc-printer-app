@@ -75,7 +75,7 @@ class PrintStatus extends React.Component {
             {(uploading || printing ) &&
               <Grid container justify="center" wrap="wrap" style={{ marginTop: '20px' }}>
                 <Grid item>
-                  <Button variant="outlined" color="primary" style={{ textTransform: "none" }}>Cancel</Button>
+                  <Button variant="outlined" color="primary">Cancel</Button>
                 </Grid>
               </Grid>}
         </Paper>

@@ -17,36 +17,36 @@ class Login extends React.Component {
     const { classes } = this.props;
     return (
         <Paper className={classes.padding}>
-            <div className={classes.margin}>
-              <AppBar position="static" alignitems="center" color="primary">
-                <Toolbar>
-                  <Grid container justify="center" wrap="wrap">
-                    <Grid item>
-                      <Typography variant="h6">To print, login using SOC UNIX account</Typography>
-                    </Grid>
+          <div className={classes.margin}>
+            <AppBar position="static" alignitems="center" color="primary">
+              <Toolbar>
+                <Grid container justify="center" wrap="wrap">
+                  <Grid item>
+                    <Typography variant="h6">To print, login using SOC UNIX account</Typography>
                   </Grid>
-                </Toolbar>
-              </AppBar>
-                <Grid container spacing={8} alignItems="flex-end">
-                    <Grid item>
-                        <Face />
-                    </Grid>
-                    <Grid item md={true} sm={true} xs={true}>
-                        <TextField id="username" label="Username" type="email" fullWidth autoFocus required />
-                    </Grid>
                 </Grid>
-                <Grid container spacing={8} alignItems="flex-end">
-                    <Grid item>
-                        <Fingerprint />
-                    </Grid>
-                    <Grid item md={true} sm={true} xs={true}>
-                        <TextField id="username" label="Password" type="password" fullWidth required />
-                    </Grid>
+              </Toolbar>
+            </AppBar>
+              <Grid container spacing={8} alignItems="flex-end">
+                <Grid item>
+                  <Face />
                 </Grid>
-                <Grid container justify="center" style={{ marginTop: '10px' }}>
-                    <Button variant="outlined" color="primary" style={{ textTransform: "none" }}>Login</Button>
+                <Grid item md={true} sm={true} xs={true}>
+                  <TextField id="username" label="Username" type="email" fullWidth autoFocus required />
                 </Grid>
-            </div>
+              </Grid>
+              <Grid container spacing={8} alignItems="flex-end">
+                <Grid item>
+                  <Fingerprint />
+                </Grid>
+                <Grid item md={true} sm={true} xs={true}>
+                  <TextField id="username" label="Password" type="password" fullWidth required />
+                </Grid>
+              </Grid>
+              <Grid container justify="center" style={{ marginTop: '10px' }}>
+                <Button variant="outlined" color="primary">Login</Button>
+              </Grid>
+          </div>
         </Paper>
     );
   }

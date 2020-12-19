@@ -7,7 +7,6 @@ let theme = createMuiTheme({
       "white": "#fff"
     }
   },
-
   overrides: {
     MuiPaper: {
       root: {
@@ -17,7 +16,8 @@ let theme = createMuiTheme({
     },
     MuiButton: {
       root: {  
-        marginTop: "0.5rem"
+        marginTop: "0.5rem",
+        textTransform: "none"
       }
     },
     MuiFormControl: {
