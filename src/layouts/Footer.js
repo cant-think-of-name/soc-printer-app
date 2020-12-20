@@ -16,22 +16,12 @@ function Copyright() {
 
 const styles = (theme) => ({
   root: {
-    backgroundColor: "#F8F8F8",
     borderTop: "1px solid #E7E7E7",
     textAlign: "center",
-    padding: "20px",
-    left: "0",
-    bottom: "0",
+    padding: theme.spacing(2.5),
     width: "100%",
   },
-  main: {
-    display: 'flex',
-    flexDirection: 'row',
-    marginTop: theme.spacing(8),
-    marginBottom: theme.spacing(2),
-  },
   footer: {
-    position: "fixed",
     bottom: "0",
     padding: theme.spacing(3, 2),
     marginTop: 'auto',
