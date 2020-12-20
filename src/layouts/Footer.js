@@ -1,5 +1,5 @@
 import React from 'react';
-import { withStyles, Box, Link, Typography, Container} from '@material-ui/core';
+import { withStyles, Box, Link, Typography } from '@material-ui/core';
 
 function Copyright() {
   return (

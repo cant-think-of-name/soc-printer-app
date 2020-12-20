@@ -6,11 +6,8 @@ import {
     Paper,
     Typography
 } from "@material-ui/core";
-import { ThemeProvider } from '@material-ui/core/styles';
 import DoneOutlineIcon from '@material-ui/icons/DoneOutline';
 import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
-
-import theme from "../theme";
 
 class PrintStatus extends React.Component {
   constructor() {
@@ -29,7 +26,6 @@ class PrintStatus extends React.Component {
   render() {
     const {uploading, printing, filesToBePrinted} = this.state;
     return (
-      <div>
         <Paper>
           <AppBar position="static" alignitems="center" color="primary" style={{ marginBottom: '20px' }}>
             <Grid container justify="center" wrap="wrap">
@@ -79,7 +75,6 @@ class PrintStatus extends React.Component {
                 </Grid>
               </Grid>}
         </Paper>
-      </div>
     );
   }
 }

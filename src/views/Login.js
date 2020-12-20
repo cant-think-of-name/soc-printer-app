@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper, withStyles, Grid, TextField, Button, FormControlLabel, Checkbox, AppBar,Typography, Toolbar, } from '@material-ui/core';
+import { Paper, withStyles, Grid, TextField, Button, AppBar, Typography, Toolbar, } from '@material-ui/core';
 import { Face, Fingerprint } from '@material-ui/icons'
 import StateContext from "../context"
 import { withRouter } from "react-router";
