@@ -29,9 +29,8 @@ class WebSocketClient {
 
   print(files, printer) {
     const printRequest = JSON.stringify({
-      method: "print",
-      files,
-      printer
+      method: "command",
+      command: `lpr -P${printer}-nb test.txt`
     })
     this.ws.send(printRequest)
   }
