@@ -26,6 +26,42 @@ class WebSocketClient {
       }
     })
   }
+
+  print(files, printer) {
+    const printRequest = JSON.stringify({
+      method: "command",
+      command: `lpr -P${printer}-nb test.txt`
+    })
+    this.ws.send(printRequest)
+  }
+
+  async getQuota() {
+    const quota = JSON.stringify({
+      method: "command",
+      command: "pusage",
+    })
+    this.ws.send(quota)
+    return new Promise((resolve) => {
+      try {
+        let message = ""
+        this.ws.onmessage = msg => {
+          message += JSON.parse(msg.data).data
+        }
+        setTimeout(() => {
+          try {
+            const str = message.split('PS-printer paper usage:')[1]
+            const quotaStr = str.split(':')[1]
+            const remainingQuota = quotaStr.split(' ')[1]
+            resolve(remainingQuota)
+          } catch (err) {
+            resolve('0')
+          }
+        }, 2000)
+      } catch (err) {
+        resolve('0')
+      }
+    })
+  }
 }
 const StateContext = React.createContext(new WebSocketClient())
 
