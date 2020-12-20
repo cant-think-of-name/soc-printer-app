@@ -36,12 +36,9 @@ class Login extends React.Component {
     const wsConnection = this.context
     const {username, password, loading} = this.state
     this.setState({ loading: true });
-    setTimeout(() => {
-        this.setState({ loading: false });
-    }, 2000);
     wsConnection.connect(username, password)
       .then(() => history.push("/print"))
-      .catch(() => console.log("not successful"))
+      .catch(() => this.setState({ loading: false }))
   }
 
   render() {
