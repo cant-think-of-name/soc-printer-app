@@ -74,8 +74,11 @@ class Print extends React.Component {
                         </AppBar>
                         <Grid container justify="center" wrap="wrap">
                             <Grid item>
+                              <Box display="flex" alignItems="center">
                                 <Button variant="outlined" color="primary" onClick={this.upload}>Upload a file</Button>
-                                <input id='uploadButton' hidden type="file" onChange={this.fileSelectHandler} />
+                                <input id='uploadButton' type="file" hidden multiple onChange={this.fileSelectHandler} />
+                                <Typography style={{paddingLeft: '1.25rem'}}>{this.state.fileNameDisplay}</Typography>
+                              </Box>
                             </Grid>
                         </Grid>
                         <Grid container justify="center" wrap="wrap">
