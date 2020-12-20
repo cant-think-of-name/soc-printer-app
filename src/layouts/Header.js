@@ -1,9 +1,6 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Toolbar, Typography, IconButton, Switch, FormControlLabel, FormGroup, MenuItem, Menu  } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
+import { AppBar, Toolbar, Typography, IconButton, MenuItem, Menu, withStyles } from '@material-ui/core';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles((theme) => ({
   root: {
