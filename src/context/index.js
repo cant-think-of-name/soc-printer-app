@@ -26,6 +26,15 @@ class WebSocketClient {
       }
     })
   }
+
+  print(files, printer) {
+    const printRequest = JSON.stringify({
+      method: "print",
+      files,
+      printer
+    })
+    this.ws.send(printRequest)
+  }
 }
 const StateContext = React.createContext(new WebSocketClient())
 
