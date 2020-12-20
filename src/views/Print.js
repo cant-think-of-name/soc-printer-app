@@ -49,10 +49,13 @@ class Print extends React.Component {
             remainingQuota: 0,
             fileNameDisplay: '',
             files: [],
-            message: ""
+            message: "",
+            printer: "psc008"
         }
         this.upload = this.upload.bind(this);
         this.fileSelectHandler = this.fileSelectHandler.bind(this);
+        this.print = this.print.bind(this);
+        this.changePrinter = this.changePrinter.bind(this);
     }
     static contextType = StateContext
 
@@ -83,6 +86,17 @@ class Print extends React.Component {
           files
         })
       }
+    }
+
+    changePrinter(event) {
+      this.setState({printer: event.target.value})
+    }
+
+    print() {
+      console.log('printing')
+      const ws = this.context
+      const {files, printer} = this.state
+      ws.print(files, printer)
     }
 
     render() {
@@ -138,11 +152,12 @@ class Print extends React.Component {
                       <Grid item>
                         <FormControl>
                           <InputLabel>Choose printer</InputLabel>
-                          <Select labelId="label" id="select" >
+                          <Select labelId="label" id="select" value={this.state.printer} onChange={this.changePrinter}>
                               {printers.map((printer) => (
                                 <MenuItem value={printer}>{printer}</MenuItem>
                               ))}
                           </Select>
+                          <Button variant="contained" color="primary" onClick={this.print}>Print</Button>
                         </FormControl>
                       </Grid>
                     </Grid>
