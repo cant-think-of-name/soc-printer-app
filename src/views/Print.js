@@ -103,101 +103,101 @@ class Print extends React.Component {
 
     render() {
         return (
-            <div>
-                <ThemeProvider theme={theme}>
-                    <Paper>
+          <div>
+            <ThemeProvider theme={theme}>
+              <Paper>
+                <Grid container justify="center" wrap="wrap">
+                  <Grid item xs={6}>
+                    <Grid container justify="center" wrap="wrap">
+                      <Grid item>
+                        <Typography variant="h4" color="primary" style={{ marginBottom: "0.5rem" }}>Quota</Typography>                    
+                      </Grid>
+                    </Grid>
+                    <Grid container justify="center" wrap="wrap">
+                      <Grid item>
+                        <Typography variant="h6">You have {this.state.remainingQuota} pages left this month</Typography>
+                      </Grid>
+                    </Grid>
+                    <Grid container justify="center" wrap="wrap">
+                      <Grid item xs={2}>
+                        <Typography>
+                            <Link href="https://socpay.comp.nus.edu.sg/" variant="body2">
+                                Want coloured printing?
+                            </Link>
+                        </Typography>
+                      </Grid>
+                      <Grid item>
+                        <Typography>
+                            <Link href="https://socpay.comp.nus.edu.sg/" variant="body2">
+                                Increase printing quota!
+                            </Link>
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                    </Grid>
+                    <Grid item xs={6}>
+                    <Grid container justify="center" wrap="wrap">
+                      <Grid item>
+                          <Typography variant="h4" color="primary">Print Documents</Typography>                    
+                      </Grid>
+                    </Grid>
+                    <Grid container justify="center" wrap="wrap">
+                      <Grid item>
+                        <Box display="flex" alignItems="center">
+                          <Button variant="outlined" color="primary" onClick={this.upload}>Upload a file</Button>
+                          <input id='uploadButton' type="file" hidden multiple onChange={this.fileSelectHandler} />
+                          <Typography style={{paddingLeft: '1.25rem'}}>{this.state.fileNameDisplay}</Typography>
+                        </Box>
+                      </Grid>
+                    </Grid>
+                    <Grid container justify="center" wrap="wrap">
+                      <Grid item>
+                        <FormControl>
+                          <InputLabel>Choose printer</InputLabel>
+                          <Select labelId="label" id="select" >
+                              {printers.map((printer) => (
+                                <MenuItem value={printer}>{printer}</MenuItem>
+                              ))}
+                          </Select>
+                        </FormControl>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+                <AppBar position="static" alignitems="center" color="primary" style={{marginTop: "40px"}}>
                         <Grid container justify="center" wrap="wrap">
-                            <Grid item xs={6}>
-                                <Grid container justify="center" wrap="wrap">
-                                    <Grid item>
-                                        <Typography variant="h4" color="primary" style={{ marginBottom: "0.5rem" }}>Quota</Typography>                    
-                                    </Grid>
-                                </Grid>
-                                <Grid container justify="center" wrap="wrap">
-                                    <Grid item>
-                                        <Typography variant="h6">You have {this.state.remainingQuota} pages left this month</Typography>
-                                    </Grid>
-                                </Grid>
-                                <Grid container justify="center" wrap="wrap">
-                                    <Grid item xs={2}>
-                                        <Typography>
-                                            <Link href="https://socpay.comp.nus.edu.sg/" variant="body2">
-                                                Want coloured printing?
-                                            </Link>
-                                        </Typography>
-                                    </Grid>
-                                    <Grid item>
-                                        <Typography>
-                                            <Link href="https://socpay.comp.nus.edu.sg/" variant="body2">
-                                                Increase printing quota!
-                                            </Link>
-                                        </Typography>
-                                    </Grid>
-                                </Grid>
-                            </Grid>
-                            <Grid item xs={6}>
-                                <Grid container justify="center" wrap="wrap">
-                                    <Grid item>
-                                        <Typography variant="h4" color="primary">Print Documents</Typography>                    
-                                    </Grid>
-                                </Grid>
-                                <Grid container justify="center" wrap="wrap">
-                                    <Grid item>
-                                      <Box display="flex" alignItems="center">
-                                        <Button variant="outlined" color="primary" onClick={this.upload}>Upload a file</Button>
-                                        <input id='uploadButton' type="file" hidden multiple onChange={this.fileSelectHandler} />
-                                        <Typography style={{paddingLeft: '1.25rem'}}>{this.state.fileNameDisplay}</Typography>
-                                      </Box>
-                                    </Grid>
-                                </Grid>
-                                <Grid container justify="center" wrap="wrap">
-                                    <Grid item>
-                                        <FormControl>
-                                            <InputLabel>Choose printer</InputLabel>
-                                            <Select labelId="label" id="select" >
-                                                {printers.map((printer) => (
-                                                    <MenuItem value={printer}>{printer}</MenuItem>
-                                                ))}
-                                            </Select>
-                                        </FormControl>
-                                    </Grid>
-                                </Grid>
+                            <Grid item>
+                                <Typography variant="h4">Printer Names & Locations</Typography>                    
                             </Grid>
                         </Grid>
-                        <AppBar position="static" alignitems="center" color="primary" style={{marginTop: "40px"}}>
-                                <Grid container justify="center" wrap="wrap">
-                                    <Grid item>
-                                        <Typography variant="h4">Printer Names & Locations</Typography>                    
-                                    </Grid>
-                                </Grid>
-                        </AppBar>
-                        <TableContainer component={Paper}>
-                            <Table aria-label="simple table">
-                                <TableHead>
-                                <TableRow>
-                                    <TableCell>Name of Print Queues</TableCell>
-                                    <TableCell align="right">Location of Printer</TableCell>
-                                    <TableCell align="right">Model of Printer</TableCell>
-                                    <TableCell align="right">Banner</TableCell>
-                                </TableRow>
-                                </TableHead>
-                                <TableBody>
-                                {rows.map((row) => (
-                                    <TableRow key={row.name}>
-                                    <TableCell component="th" scope="row">
-                                        {row.printer}
-                                    </TableCell>
-                                    <TableCell align="right">{row.location}</TableCell>
-                                    <TableCell align="right">{row.model}</TableCell>
-                                    <TableCell align="right">{row.banner}</TableCell>
-                                    </TableRow>
-                                ))}
-                                </TableBody>
-                            </Table>
-                            </TableContainer>
-                    </Paper>
-                </ThemeProvider>
-            </div>
+                </AppBar>
+                <TableContainer component={Paper}>
+                    <Table aria-label="simple table">
+                        <TableHead>
+                        <TableRow>
+                            <TableCell>Name of Print Queues</TableCell>
+                            <TableCell align="right">Location of Printer</TableCell>
+                            <TableCell align="right">Model of Printer</TableCell>
+                            <TableCell align="right">Banner</TableCell>
+                        </TableRow>
+                        </TableHead>
+                        <TableBody>
+                        {rows.map((row) => (
+                            <TableRow key={row.name}>
+                            <TableCell component="th" scope="row">
+                                {row.printer}
+                            </TableCell>
+                            <TableCell align="right">{row.location}</TableCell>
+                            <TableCell align="right">{row.model}</TableCell>
+                            <TableCell align="right">{row.banner}</TableCell>
+                            </TableRow>
+                        ))}
+                        </TableBody>
+                    </Table>
+                    </TableContainer>
+              </Paper>
+            </ThemeProvider>
+          </div>
         );
     }
 }
