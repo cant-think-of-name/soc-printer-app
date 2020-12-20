@@ -5,8 +5,8 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+      <Link color="inherit" href="https://socprinting.tech/">
+        SOC Printer App
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -43,31 +43,31 @@ class Footer extends React.Component {
               <Box display="flex" flexDirection="column">
                 Chow Jia Ying:
                 <Link href="https://www.github.com/C-likethis123" >
-                  GitHub page
+                  GitHub
                 </Link>
                 <Link href="https://c-likethis123.github.io/website/" >
-                  Personal page
+                  Website
                 </Link>
               </Box>
               <Box display="flex" flexDirection="column">
                 Lim Kang Yee:
                 <Link href="https://github.com/kangyeelim" >
-                  GitHub page
+                  GitHub
                 </Link>
                 <Link href="https://kangyeelim.github.io/aboutme/" >
-                  Personal page
+                  Website
                 </Link>
               </Box>
               <Box display="flex" flexDirection="column">
                 Evon Dong Bing Bing:
                 <Link href="https://github.com/EvonDong" >
-                  GitHub page
+                  GitHub
                 </Link>
               </Box>
               <Box display="flex" flexDirection="column">
                 Michaela Tang:
                   <Link href="https://github.com/MichaelaTSH" >
-                    GitHub page
+                    GitHub
                   </Link>
               </Box>
             </Box>
