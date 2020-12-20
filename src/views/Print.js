@@ -47,6 +47,7 @@ class Print extends React.Component {
     }
 
     render() {
+      const { remainingQuota, printer, fileNameDisplay } = this.state
         return (
           <ThemeProvider theme={theme}>
             <Paper>
@@ -59,7 +60,7 @@ class Print extends React.Component {
               </AppBar>
               <Grid container justify="center" wrap="wrap">
                 <Grid item>
-                    <Typography variant="h6">You have {this.state.remainingQuota} pages left this month</Typography>
+                    <Typography variant="h6">You have {remainingQuota} pages left this month</Typography>
                 </Grid>
               </Grid>
               <Grid container justify="center" wrap="wrap">
@@ -90,7 +91,7 @@ class Print extends React.Component {
                   <Box display="flex" alignItems="center">
                     <Button variant="outlined" color="primary" onClick={this.upload}>Upload a file</Button>
                     <input id='uploadButton' type="file" hidden multiple onChange={this.fileSelectHandler} />
-                    <Typography style={{paddingLeft: '1.25rem'}}>{this.state.fileNameDisplay}</Typography>
+                    <Typography style={{paddingLeft: '1.25rem'}}>{fileNameDisplay}</Typography>
                   </Box>
                 </Grid>
               </Grid>
