@@ -36,12 +36,9 @@ class Login extends React.Component {
     const wsConnection = this.context
     const {username, password, loading} = this.state
     this.setState({ loading: true });
-    setTimeout(() => {
-        this.setState({ loading: false });
-    }, 2000);
     wsConnection.connect(username, password)
       .then(() => history.push("/print"))
-      .catch(() => console.log("not successful"))
+      .catch(() => this.setState({ loading: false }))
   }
 
   render() {
@@ -78,8 +75,7 @@ class Login extends React.Component {
               </Grid>
               <Grid container justify="center" style={{ marginTop: '10px' }}>
                 <Button variant="outlined" id="loginbutton" color="primary" onClick={this.handleSubmit} disabled={loading}>
-                    {loading && <span>Loading</span>}
-                    {!loading && <span>Login</span>}
+                    {loading ? 'Loading' : 'Login'}
                 </Button>
               </Grid>
           </div>
