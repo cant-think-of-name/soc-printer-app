@@ -30,12 +30,12 @@ module.exports = async (ws, req) => {
         .then((res) => console.log(res))
         break;
       case "command":
-        sshConfig = {
+        /*sshConfig = {
           host: "sunfire-r.comp.nus.edu.sg",
           username: `${data.username}`,
           password: `${data.password}`
         }
-        await ssh.connect(sshConfig);
+        await ssh.connect(sshConfig);*/
         const shellStream = await ssh.requestShell();
         shellStream.write(`${data.command.trim()}\n`);
         console.log("sent");

@@ -20,6 +20,7 @@ class Login extends React.Component {
     this.state = {
       username: '',
       password: '',
+      loading: false,
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -33,14 +34,17 @@ class Login extends React.Component {
   async handleSubmit(event) {
     const { history } = this.props
     const wsConnection = this.context
-    const {username, password} = this.state
+    const {username, password, loading} = this.state
+    this.setState({ loading: true });
     wsConnection.connect(username, password)
       .then(() => history.push("/print"))
-      .catch(() => console.log("not successful"))
+      .catch(() => this.setState({ loading: false }))
   }
 
   render() {
-    const { classes } = this.props;
+      const { classes } = this.props;
+      const { loading } = this.state;
+
     return (
         <Paper className={classes.padding}>
           <div className={classes.margin}>
@@ -70,7 +74,9 @@ class Login extends React.Component {
                 </Grid>
               </Grid>
               <Grid container justify="center" style={{ marginTop: '10px' }}>
-                <Button variant="outlined" color="primary" onClick={this.handleSubmit}>Login</Button>
+                <Button variant="outlined" id="loginbutton" color="primary" onClick={this.handleSubmit} disabled={loading}>
+                    {loading ? 'Loading' : 'Login'}
+                </Button>
               </Grid>
           </div>
         </Paper>
