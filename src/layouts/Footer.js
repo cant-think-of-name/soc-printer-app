@@ -20,6 +20,7 @@ const styles = (theme) => ({
     textAlign: "center",
     padding: theme.spacing(2.5),
     width: "100%",
+    ...theme.typography.body1,
   },
   footer: {
     bottom: "0",
@@ -37,7 +38,6 @@ class Footer extends React.Component {
     return (
       <Box className={classes.root}>
         <footer className={classes.footer} >
-          <Container>
               Credits to:
             <Box display="flex" justifyContent="space-between">
               <Box display="flex" flexDirection="column">
@@ -72,7 +72,6 @@ class Footer extends React.Component {
               </Box>
             </Box>
             <Copyright />
-          </Container>
         </footer>
       </Box>
   )
