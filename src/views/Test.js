@@ -25,9 +25,7 @@ class Test extends Component {
 
   onSend() {
     let data = {method: "command",
-      command: this.state.command,
-      username: this.state.username,
-      password: this.state.password}
+      command: this.state.command}
     ws.send(JSON.stringify(data))
     this.setState({
       ...this.state,
