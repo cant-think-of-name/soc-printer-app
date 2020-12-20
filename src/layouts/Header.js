@@ -2,7 +2,7 @@ import React from 'react';
 import { AppBar, Toolbar, Typography, IconButton, MenuItem, Menu, withStyles } from '@material-ui/core';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 
-const useStyles = makeStyles((theme) => ({
+const styles = (theme) => ({
   root: {
     flexGrow: 1,
   },
@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
-}));
+});
 
 /**
  * For the header
@@ -81,6 +81,6 @@ export default function Header() {
   );
 }
 
-// export default Header;
+export default withStyles(styles)(Header);
 
 
