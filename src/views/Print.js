@@ -20,6 +20,9 @@ import {
 } from "@material-ui/core";
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from "../theme";
+import { w3cwebsocket as WebSocket } from "websocket"
+
+const ws = new WebSocket("ws://localhost:5000", "echo-protocol")
 
 const rows = [
     {printer: 'psc008 psc008-dx psc008-sx psc008-nb psc011 psc011-dx psc011-sx psc011-nb', location: 'COM1, Basement (outside Programming Lab 3)',
@@ -45,12 +48,34 @@ class Print extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            remainingQuota: 100,
+            remainingQuota: 0,
             fileNameDisplay: '',
-            files: []
+            files: [],
+            message: ""
         }
         this.upload = this.upload.bind(this);
         this.fileSelectHandler = this.fileSelectHandler.bind(this);
+        this.parseQuota = this.parseQuota.bind(this);
+    }
+
+    async componentDidMount() {
+        setTimeout(this.parseQuota, 2000);
+        let data = {method: "command",
+        command: 'pusage'}
+        ws.send(JSON.stringify(data))
+        var message = "";
+        ws.onmessage = msg => {
+            message = message + JSON.parse(msg.data).data
+            this.setState({message:message});
+        }
+        
+    }
+
+    parseQuota() {
+        var str = this.state.message.split('PS-printer paper usage:')[1];
+        var quotaStr = str.split(':')[1]
+        var remainingQuota = quotaStr.split(' ')[1];
+        this.setState({remainingQuota: remainingQuota});
     }
 
     upload() {
@@ -64,6 +89,10 @@ class Print extends React.Component {
           this.setState({
             fileNameDisplay: fileName.name,
             files})
+            var extension = fileName.name.split('.')[1];
+            if (extension == 'pdf') {
+
+            }
       } else {
           this.setState({
             fileNameDisplay: `${files.length} files`,
