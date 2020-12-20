@@ -33,25 +33,10 @@ class Login extends React.Component {
   async handleSubmit(event) {
     const { history } = this.props
     const wsConnection = this.context
-    const data = {
-      ...this.state,
-      method: "login",
-    }
-    wsConnection.send(JSON.stringify(data))
-    // if succeed
-    wsConnection.onmessage = msg => {
-      const {data} = msg
-      const {isConnected} = JSON.parse(data)
-      if (isConnected) {
-        history.push("/print")
-      } else {
-        console.log(msg)
-      }
-    }
-    this.setState({
-      username: '',
-      password: ''
-    })
+    const {username, password} = this.state
+    wsConnection.connect(username, password)
+      .then(() => history.push("/print"))
+      .catch(() => console.log("not successful"))
   }
 
   render() {

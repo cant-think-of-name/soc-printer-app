@@ -6,7 +6,7 @@ class WebSocketClient {
     this.ws = new WebSocket("ws://localhost:5000", "echo-protocol")
   }
 
-  connect(username, password) {
+  async connect(username, password) {
     const webSocket = this.ws
     const loginMessage = JSON.stringify({
       method: "login",
