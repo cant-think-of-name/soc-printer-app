@@ -26,10 +26,6 @@ class PrintStatus extends React.Component {
   render() {
     const {uploading, printing, filesToBePrinted} = this.state;
     return (
-<<<<<<< HEAD
-=======
-      <div>
->>>>>>> Edited suggested changes.
         <Paper>
           <AppBar position="static" alignitems="center" color="primary" style={{ marginBottom: '20px' }}>
             <Grid container justify="center" wrap="wrap">
