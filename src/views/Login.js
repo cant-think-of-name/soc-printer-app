@@ -75,8 +75,7 @@ class Login extends React.Component {
               </Grid>
               <Grid container justify="center" style={{ marginTop: '10px' }}>
                 <Button variant="outlined" id="loginbutton" color="primary" onClick={this.handleSubmit} disabled={loading}>
-                    {loading && <span>Loading</span>}
-                    {!loading && <span>Login</span>}
+                    {loading ? 'Loading' : 'Login'}
                 </Button>
               </Grid>
           </div>
