@@ -164,13 +164,11 @@ class Print extends React.Component {
                                 </Grid>
                             </Grid>
                         </Grid>
-                        <AppBar position="static" alignitems="center" color="primary" style={{marginTop: "40px"}}>
-                                <Grid container justify="center" wrap="wrap">
-                                    <Grid item>
-                                        <Typography variant="h4">Printer Names & Locations</Typography>                    
-                                    </Grid>
-                                </Grid>
-                        </AppBar>
+                        <Grid container justify="center" wrap="wrap">
+                            <Grid item>
+                                <Typography variant="h4" color="primary" style={{ marginTop: "4rem" }}>Printer Names & Locations</Typography>                    
+                            </Grid>
+                        </Grid>
                         <TableContainer component={Paper}>
                             <Table aria-label="simple table">
                                 <TableHead>
