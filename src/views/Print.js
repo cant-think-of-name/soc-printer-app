@@ -15,6 +15,7 @@ import {
 import { ThemeProvider } from '@material-ui/core/styles';
 import {withRouter} from "react-router-dom";
 import theme from "../theme";
+import StateContext from "../context"
 
 class Print extends React.Component {
   constructor(props) {
@@ -30,6 +31,8 @@ class Print extends React.Component {
     this.changePrinter = this.changePrinter.bind(this);
     this.print = this.print.bind(this);
   }
+
+  static contextType = StateContext
 
   upload() {
     document.getElementById("uploadButton").click();
@@ -55,8 +58,11 @@ class Print extends React.Component {
   }
 
   print() {
-    const {history} = this.props
-    history.push("/status")
+    const wsConnection = this.context
+    const { files, printer } = this.state
+    wsConnection.print(files, printer)
+    // const {history} = this.props
+    // history.push("/status")
   }
 
   render() {
