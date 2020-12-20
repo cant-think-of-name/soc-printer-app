@@ -1,11 +1,8 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Toolbar, Typography, IconButton, Switch, FormControlLabel, FormGroup, MenuItem, Menu  } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
+import { AppBar, Toolbar, Typography, IconButton, MenuItem, Menu, withStyles } from '@material-ui/core';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import Link from '@material-ui/core/Link';
 
-const useStyles = makeStyles((theme) => ({
+const styles = (theme) => ({
   root: {
     flexGrow: 1,
   },
@@ -15,33 +12,41 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
-}));
+});
 
 /**
  * For the header
  * @param {} props 
  */
 
-export default function Header() {
-  const classes = useStyles();
-  const [auth, setAuth] = React.useState(true);
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
+class Header extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      auth: true,
+      anchorEl: null
+    }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleMenu = this.handleMenu.bind(this)
+    this.handleClose = this.handleClose.bind(this)
+  }
 
-  const handleChange = (event) => {
-    setAuth(event.target.checked);
+  handleChange(event) {
+    this.setState({ auth: event.target.checked})
   };
 
-  const handleMenu = (event) => {
-    setAnchorEl(event.currentTarget);
+  handleMenu(event) {
+    this.setState({anchorEl: event.currentTarget})
   };
 
-  const handleClose = () => {
-    setAnchorEl(null);
+  handleClose() {
+    this.setState({anchorEl: null})
   };
 
-  return (
-    <div className={classes.root}>
+  render() {
+    const {classes} = this.props
+    const { auth, anchorEl } = this.state
+   return <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
@@ -53,7 +58,7 @@ export default function Header() {
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
-                onClick={handleMenu}
+                onClick={this.handleMenu}
                 color="inherit"
               >
                 <AccountCircle />
@@ -70,20 +75,20 @@ export default function Header() {
                   vertical: 'top',
                   horizontal: 'right',
                 }}
-                open={open}
-                onClose={handleClose}
+                open={Boolean(anchorEl)}
+                onClose={this.handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={this.handleClose}>Profile</MenuItem>
+                <MenuItem onClick={this.handleClose}>My account</MenuItem>
               </Menu>
             </div>
           )}
         </Toolbar>
       </AppBar>
     </div>
-  );
+  }
 }
 
-// export default Header;
+export default withStyles(styles)(Header);
 
 

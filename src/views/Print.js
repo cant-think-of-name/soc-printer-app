@@ -1,6 +1,7 @@
 import React from 'react';
 import {
     AppBar,
+    Box,
     Button,
     FormControl,
     Grid,
@@ -18,7 +19,9 @@ class Print extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            remainingQuota: 100
+            remainingQuota: 100,
+            fileNameDisplay: '',
+            files: []
         }
         this.upload = this.upload.bind(this);
         this.fileSelectHandler = this.fileSelectHandler.bind(this);
@@ -28,8 +31,19 @@ class Print extends React.Component {
         document.getElementById("uploadButton").click();
     }
 
-    fileSelectHandler() {
-        console.log("upload");
+    fileSelectHandler(event) {
+      const files = event.target.files
+      if (files.length === 1) {
+          const [fileName] = files
+          this.setState({
+            fileNameDisplay: fileName.name,
+            files})
+      } else {
+          this.setState({
+            fileNameDisplay: `${files.length} files`,
+            files
+          })
+      }
     }
 
     render() {
@@ -74,8 +88,11 @@ class Print extends React.Component {
                         </AppBar>
                         <Grid container justify="center" wrap="wrap">
                             <Grid item>
-                                <Button variant="outlined" color="primary" style={{ textTransform: "none" }} onClick={this.upload}>Upload a file</Button>
-                                <input id='uploadButton' hidden type="file" onChange={this.fileSelectHandler} />
+                              <Box display="flex" alignItems="center">
+                                <Button variant="outlined" color="primary" onClick={this.upload}>Upload a file</Button>
+                                <input id='uploadButton' type="file" hidden multiple onChange={this.fileSelectHandler} />
+                                <Typography style={{paddingLeft: '1.25rem'}}>{this.state.fileNameDisplay}</Typography>
+                              </Box>
                             </Grid>
                         </Grid>
                         <Grid container justify="center" wrap="wrap">
