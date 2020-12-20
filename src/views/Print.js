@@ -74,7 +74,7 @@ class Print extends React.Component {
           fileNameDisplay: fileName.name,
           files})
           var extension = fileName.name.split('.')[1];
-          if (extension == 'pdf') {
+          if (extension === 'pdf') {
 
           }
       } else {
