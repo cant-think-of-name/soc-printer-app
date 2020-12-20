@@ -35,6 +35,30 @@ class WebSocketClient {
     })
     this.ws.send(printRequest)
   }
+
+  async getQuota() {
+    const quota = JSON.stringify({
+      method: "command",
+      command: "pusage",
+    })
+    this.ws.send(quota)
+    return new Promise((resolve, reject) => {
+      try {
+        let message = ""
+        this.ws.onmessage = msg => {
+          message += JSON.parse(msg.data).data
+        }
+        setTimeout(() => {
+          const str = message.split('PS-printer paper usage:')[1]
+          const quotaStr = str.split(':')[1]
+          const remainingQuota = quotaStr.split(' ')[1]
+          resolve(remainingQuota)
+        }, 2000)
+      } catch (err) {
+        reject(err)
+      }
+    })
+  }
 }
 const StateContext = React.createContext(new WebSocketClient())
 
