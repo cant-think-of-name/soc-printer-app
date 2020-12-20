@@ -42,20 +42,24 @@ class WebSocketClient {
       command: "pusage",
     })
     this.ws.send(quota)
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       try {
         let message = ""
         this.ws.onmessage = msg => {
           message += JSON.parse(msg.data).data
         }
         setTimeout(() => {
-          const str = message.split('PS-printer paper usage:')[1]
-          const quotaStr = str.split(':')[1]
-          const remainingQuota = quotaStr.split(' ')[1]
-          resolve(remainingQuota)
+          try {
+            const str = message.split('PS-printer paper usage:')[1]
+            const quotaStr = str.split(':')[1]
+            const remainingQuota = quotaStr.split(' ')[1]
+            resolve(remainingQuota)
+          } catch (err) {
+            resolve('0')
+          }
         }, 2000)
       } catch (err) {
-        reject(err)
+        resolve('0')
       }
     })
   }
