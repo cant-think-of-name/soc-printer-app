@@ -13,6 +13,7 @@ import {
     Typography
 } from "@material-ui/core";
 import { ThemeProvider } from '@material-ui/core/styles';
+import {withRouter} from "react-router-dom";
 import theme from "../theme";
 
 class Print extends React.Component {
@@ -27,6 +28,7 @@ class Print extends React.Component {
     this.upload = this.upload.bind(this);
     this.fileSelectHandler = this.fileSelectHandler.bind(this);
     this.changePrinter = this.changePrinter.bind(this);
+    this.print = this.print.bind(this);
   }
 
   upload() {
@@ -50,6 +52,11 @@ class Print extends React.Component {
         files
       })
     }
+  }
+
+  print() {
+    const {history} = this.props
+    history.push("/status")
   }
 
   render() {
@@ -115,10 +122,15 @@ class Print extends React.Component {
               </FormControl>
             </Grid>
           </Grid>
+          <Grid container justify="center" wrap="wrap">
+            <Grid item>
+              <Button color="primary" variant="contained" onClick={this.print}>Print</Button>
+            </Grid>
+          </Grid>
         </Paper>
       </ThemeProvider>
     );
   }
 }
 
-export default Print;
+export default withRouter(Print);
