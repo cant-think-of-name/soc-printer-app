@@ -21,13 +21,21 @@ module.exports = async (ws, req) => {
           ws.send(response)
         }
         break;
+      case "print":
+        const {files, printer} = data
+        // TODO: upload files to the server
+
+        // initiate a print request
+        ssh.execCommand('pwd')
+        .then((res) => console.log(res))
+        break;
       case "command":
-        sshConfig = {
+        /*sshConfig = {
           host: "sunfire-r.comp.nus.edu.sg",
           username: `${data.username}`,
           password: `${data.password}`
         }
-        await ssh.connect(sshConfig);
+        await ssh.connect(sshConfig);*/
         const shellStream = await ssh.requestShell();
         shellStream.write(`${data.command.trim()}\n`);
         console.log("sent");

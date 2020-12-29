@@ -14,6 +14,27 @@ import {
 } from "@material-ui/core";
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from "../theme";
+import StateContext from "../context"
+
+const rows = [
+    {printer: 'psc008 psc008-dx psc008-sx psc008-nb psc011 psc011-dx psc011-sx psc011-nb', location: 'COM1, Basement (outside Programming Lab 3)',
+    model: 'LEXMARK MS821DN, A4 Postscript III', banner: 'yes'},
+    {printer: 'psts psts-dx psts-sx psts-nb pstsb pstsb-dx pstsb-sx pstsb-nb pstsc pstsc-dx pstsc-sx pstsc-nb',
+    location: 'COM1, Level 1, Printer Area', model: 'LEXMARK MS821DN, A4 Postscript III', banner: 'yes'},
+    {printer: 'cptsc cptsc-dx', location:'COM1-01-06, Technical Services', model:'LEXMARK CS921DE, Colour A4 Postscript III', 
+    banner: 'no'},
+    {printer: 'cptsc-a3 cptsc-a3-dx', location:'COM1-01-06, Technical Services', model:'LEXMARK CS921DE, Colour A3 Postscript III', 
+    banner: 'no'},
+    {printer: 'psx342a psx342a-dx psx342a-sx psx342b psx342b-dx psx342b-sx', location:'I3 -03-42, Student Printing Room', model:'LEXMARK T654DN, A4 Postscript III', 
+    banner: 'yes'},
+]
+
+const printers = [
+    'psc008', 'psc008-dx', 'psc008-sx', 'psc008-nb', 'psc011', 'psc011-dx', 'psc011-sx', 'psc011-nb',
+    'psts', 'psts-dx', 'psts-sx', 'psts-nb', 'pstsb', 'pstsb-dx', 'pstsb-sx', 'pstsb-nb', 'pstsc', 'pstsc-dx', 'pstsc-sx', 'pstsc-nb',
+    'cptsc', 'cptsc-dx', 'cptsc-a3', 'cptsc-a3-dx',
+    'psx342a', 'psx342a-dx', 'psx342a-sx', 'psx342b', 'psx342b-dx', 'psx342b-sx'
+]
 
 class Print extends React.Component {
   constructor(props) {

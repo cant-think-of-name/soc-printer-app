@@ -40,7 +40,9 @@ class Login extends React.Component {
   }
 
   render() {
-    const { classes } = this.props;
+      const { classes } = this.props;
+      const { loading } = this.state;
+
     return (
       <Paper className={classes.padding}>
         <div className={classes.margin}>
