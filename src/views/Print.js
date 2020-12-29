@@ -10,7 +10,7 @@ import {
   MenuItem,
   Paper,
   Select,
-  Typography
+  Typography,
 } from "@material-ui/core";
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from "../theme";
@@ -21,7 +21,7 @@ class Print extends React.Component {
     this.state = {
       remainingQuota: 100,
       fileNameDisplay: '',
-      files: []
+      files: [],
     };
     this.upload = this.upload.bind(this);
     this.fileSelectHandler = this.fileSelectHandler.bind(this);
@@ -41,7 +41,7 @@ class Print extends React.Component {
     } else {
       this.setState({
         fileNameDisplay: `${files.length} files`,
-        files
+        files,
       });
     }
   }

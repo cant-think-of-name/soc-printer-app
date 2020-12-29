@@ -24,7 +24,7 @@ class Header extends React.Component {
     super(props);
     this.state = {
       auth: true,
-      anchorEl: null
+      anchorEl: null,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleMenu = this.handleMenu.bind(this);

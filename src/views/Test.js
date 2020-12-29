@@ -6,11 +6,11 @@ const ws = new WebSocket("ws://localhost:5000", "echo-protocol");
 class Test extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      commandList: [],
-      command: '',
-      username: "",
-      password: ""
+    this.state = { 
+      commandList: [], 
+      command: '', 
+      username: "", 
+      password: "",
     };
     this.onSubmit = this.onSubmit.bind(this);
   }
@@ -18,7 +18,7 @@ class Test extends Component {
   async componentDidMount() {
     ws.onmessage = msg => {
       this.setState({
-        commandList:  [...this.state.commandList, JSON.parse(msg.data)]
+        commandList:  [...this.state.commandList, JSON.parse(msg.data)],
       });
     };
   }
@@ -31,7 +31,7 @@ class Test extends Component {
     ws.send(JSON.stringify(data));
     this.setState({
       ...this.state,
-      command: ''
+      command: '',
     });
   }
 

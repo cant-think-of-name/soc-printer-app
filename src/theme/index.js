@@ -4,28 +4,28 @@ let theme = createMuiTheme({
   "palette": {
     "common": {
       "black": "#000",
-      "white": "#fff"
-    }
+      "white": "#fff",
+    },
   },
   overrides: {
     MuiPaper: {
       root: {
         margin: "0.8rem",
-        padding: "1.6rem"
-      }
+        padding: "1.6rem",
+      },
     },
     MuiButton: {
       root: {  
         marginTop: "0.5rem",
-        textTransform: "none"
-      }
+        textTransform: "none",
+      },
     },
     MuiFormControl: {
       root: {  
-        minWidth: "10rem"
-      }
-    }
-  }
+        minWidth: "10rem",
+      },
+    },
+  },
 });
 
 theme = responsiveFontSizes(theme);

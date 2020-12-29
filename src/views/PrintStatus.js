@@ -4,7 +4,7 @@ import {
   Button,
   Grid,
   Paper,
-  Typography
+  Typography,
 } from "@material-ui/core";
 import DoneOutlineIcon from '@material-ui/icons/DoneOutline';
 import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
@@ -15,7 +15,7 @@ class PrintStatus extends React.Component {
     this.state = {
       uploading: false,
       printing: true,
-      filesToBePrinted: 1
+      filesToBePrinted: 1,
     };
   }
 
