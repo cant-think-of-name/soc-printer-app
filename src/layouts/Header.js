@@ -32,19 +32,19 @@ class Header extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({ auth: event.target.checked});
+    this.setState({ auth: event.target.checked });
   }
 
   handleMenu(event) {
-    this.setState({anchorEl: event.currentTarget});
+    this.setState({ anchorEl: event.currentTarget });
   }
 
   handleClose() {
-    this.setState({anchorEl: null});
+    this.setState({ anchorEl: null });
   }
 
   render() {
-    const {classes} = this.props;
+    const { classes } = this.props;
     const { auth, anchorEl } = this.state;
     return <div className={classes.root}>
       <AppBar position="static">

@@ -24,10 +24,10 @@ class Test extends Component {
   }
 
   onSend() {
-    let data = {method: "command",
+    let data = { method: "command",
       command: this.state.command,
       username: this.state.username,
-      password: this.state.password};
+      password: this.state.password };
     ws.send(JSON.stringify(data));
     this.setState({
       ...this.state,
@@ -48,7 +48,7 @@ class Test extends Component {
           <input
             type="text"
             value={this.state.command}
-            onChange={(e) => this.setState({command: e.target.value})}
+            onChange={(e) => this.setState({ command: e.target.value })}
             placeholder="Enter your command"
           />
         </form>

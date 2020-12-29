@@ -37,7 +37,7 @@ class Print extends React.Component {
       const [fileName] = files;
       this.setState({
         fileNameDisplay: fileName.name,
-        files});
+        files });
     } else {
       this.setState({
         fileNameDisplay: `${files.length} files`,
@@ -91,7 +91,7 @@ class Print extends React.Component {
                 <Box display="flex" alignItems="center">
                   <Button variant="outlined" color="primary" onClick={this.upload}>Upload a file</Button>
                   <input id='uploadButton' type="file" hidden multiple onChange={this.fileSelectHandler} />
-                  <Typography style={{paddingLeft: '1.25rem'}}>{this.state.fileNameDisplay}</Typography>
+                  <Typography style={{ paddingLeft: '1.25rem' }}>{this.state.fileNameDisplay}</Typography>
                 </Box>
               </Grid>
             </Grid>

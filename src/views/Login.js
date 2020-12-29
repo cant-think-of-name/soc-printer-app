@@ -27,13 +27,13 @@ class Login extends React.Component {
 
   static contextType = StateContext
   handleChange(event) {
-    this.setState({[event.target.id]: event.target.value});
+    this.setState({ [event.target.id]: event.target.value });
   }
 
   async handleSubmit(event) {
     const { history } = this.props;
     const wsConnection = this.context;
-    const {username, password} = this.state;
+    const { username, password } = this.state;
     wsConnection.connect(username, password)
       .then(() => history.push("/print"))
       .catch(() => console.log("not successful"));

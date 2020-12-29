@@ -24,7 +24,7 @@ class PrintStatus extends React.Component {
   }
 
   render() {
-    const {uploading, printing, filesToBePrinted} = this.state;
+    const { uploading, printing, filesToBePrinted } = this.state;
     return (
       <Paper>
         <AppBar position="static" alignitems="center" color="primary" style={{ marginBottom: '20px' }}>

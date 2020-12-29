@@ -16,8 +16,8 @@ class WebSocketClient {
     webSocket.send(loginMessage);
     return new Promise((resolve, reject) => {
       webSocket.onmessage = (msg) => {
-        const {data} = msg;
-        const {isConnected} = JSON.parse(data);
+        const { data } = msg;
+        const { isConnected } = JSON.parse(data);
         if (isConnected) {
           resolve();
         } else {
