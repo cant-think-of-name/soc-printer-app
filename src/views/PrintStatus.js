@@ -1,10 +1,10 @@
 import React from 'react';
 import {
-    AppBar,
-    Button,
-    Grid,
-    Paper,
-    Typography
+  AppBar,
+  Button,
+  Grid,
+  Paper,
+  Typography
 } from "@material-ui/core";
 import DoneOutlineIcon from '@material-ui/icons/DoneOutline';
 import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
@@ -16,7 +16,7 @@ class PrintStatus extends React.Component {
       uploading: false,
       printing: true,
       filesToBePrinted: 1
-    }
+    };
   }
 
   componentDidMount() {
@@ -26,21 +26,21 @@ class PrintStatus extends React.Component {
   render() {
     const {uploading, printing, filesToBePrinted} = this.state;
     return (
-        <Paper>
-          <AppBar position="static" alignitems="center" color="primary" style={{ marginBottom: '20px' }}>
-            <Grid container justify="center" wrap="wrap">
-              <Grid item>
-                <Typography variant="h4">View Printing Status</Typography>
-              </Grid>
+      <Paper>
+        <AppBar position="static" alignitems="center" color="primary" style={{ marginBottom: '20px' }}>
+          <Grid container justify="center" wrap="wrap">
+            <Grid item>
+              <Typography variant="h4">View Printing Status</Typography>
             </Grid>
-          </AppBar>
-            {!uploading && !printing &&
+          </Grid>
+        </AppBar>
+        {!uploading && !printing &&
               <Grid container justify="center" wrap="wrap">
                 <Grid item>
                   <Typography variant="h6">Nothing to be printed currently.</Typography>
                 </Grid>
-            </Grid>}
-            {uploading && !printing &&
+              </Grid>}
+        {uploading && !printing &&
               <Grid container justify="center" wrap="wrap">
                 <Grid item xs={2}>
                   <Typography variant="h6">Uploading {filesToBePrinted} file(s)</Typography>
@@ -49,7 +49,7 @@ class PrintStatus extends React.Component {
                   <HourglassEmptyIcon/>
                 </Grid>
               </Grid>}
-            {!uploading && printing &&
+        {!uploading && printing &&
               <div>
                 <Grid container justify="center" wrap="wrap">
                   <Grid item xs={2}>
@@ -68,13 +68,13 @@ class PrintStatus extends React.Component {
                   </Grid>
                 </Grid>
               </div>}
-            {(uploading || printing ) &&
+        {(uploading || printing ) &&
               <Grid container justify="center" wrap="wrap" style={{ marginTop: '20px' }}>
                 <Grid item>
                   <Button variant="outlined" color="primary">Cancel</Button>
                 </Grid>
               </Grid>}
-        </Paper>
+      </Paper>
     );
   }
 }

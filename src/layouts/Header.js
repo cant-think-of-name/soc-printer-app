@@ -21,32 +21,32 @@ const styles = (theme) => ({
 
 class Header extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       auth: true,
       anchorEl: null
-    }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleMenu = this.handleMenu.bind(this)
-    this.handleClose = this.handleClose.bind(this)
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleMenu = this.handleMenu.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
   handleChange(event) {
-    this.setState({ auth: event.target.checked})
-  };
+    this.setState({ auth: event.target.checked});
+  }
 
   handleMenu(event) {
-    this.setState({anchorEl: event.currentTarget})
-  };
+    this.setState({anchorEl: event.currentTarget});
+  }
 
   handleClose() {
-    this.setState({anchorEl: null})
-  };
+    this.setState({anchorEl: null});
+  }
 
   render() {
-    const {classes} = this.props
-    const { auth, anchorEl } = this.state
-   return <div className={classes.root}>
+    const {classes} = this.props;
+    const { auth, anchorEl } = this.state;
+    return <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
@@ -85,7 +85,7 @@ class Header extends React.Component {
           )}
         </Toolbar>
       </AppBar>
-    </div>
+    </div>;
   }
 }
 

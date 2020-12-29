@@ -39,43 +39,43 @@ class Footer extends React.Component {
       <Box className={classes.root}>
         <footer className={classes.footer} >
               Credits to:
-            <Box display="flex" justifyContent="space-between">
-              <Box display="flex" flexDirection="column">
+          <Box display="flex" justifyContent="space-between">
+            <Box display="flex" flexDirection="column">
                 Chow Jia Ying:
-                <Link href="https://www.github.com/C-likethis123" >
+              <Link href="https://www.github.com/C-likethis123" >
                   GitHub
-                </Link>
-                <Link href="https://c-likethis123.github.io/website/" >
+              </Link>
+              <Link href="https://c-likethis123.github.io/website/" >
                   Website
-                </Link>
-              </Box>
-              <Box display="flex" flexDirection="column">
-                Lim Kang Yee:
-                <Link href="https://github.com/kangyeelim" >
-                  GitHub
-                </Link>
-                <Link href="https://kangyeelim.github.io/aboutme/" >
-                  Website
-                </Link>
-              </Box>
-              <Box display="flex" flexDirection="column">
-                Evon Dong Bing Bing:
-                <Link href="https://github.com/EvonDong" >
-                  GitHub
-                </Link>
-              </Box>
-              <Box display="flex" flexDirection="column">
-                Michaela Tang:
-                  <Link href="https://github.com/MichaelaTSH" >
-                    GitHub
-                  </Link>
-              </Box>
+              </Link>
             </Box>
-            <Copyright />
+            <Box display="flex" flexDirection="column">
+                Lim Kang Yee:
+              <Link href="https://github.com/kangyeelim" >
+                  GitHub
+              </Link>
+              <Link href="https://kangyeelim.github.io/aboutme/" >
+                  Website
+              </Link>
+            </Box>
+            <Box display="flex" flexDirection="column">
+                Evon Dong Bing Bing:
+              <Link href="https://github.com/EvonDong" >
+                  GitHub
+              </Link>
+            </Box>
+            <Box display="flex" flexDirection="column">
+                Michaela Tang:
+              <Link href="https://github.com/MichaelaTSH" >
+                    GitHub
+              </Link>
+            </Box>
+          </Box>
+          <Copyright />
         </footer>
       </Box>
-  )
-}
+    );
+  }
 }
 
 export default withStyles(styles)(Footer);
