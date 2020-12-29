@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { w3cwebsocket as WebSocket } from "websocket";
+import { w3cwebsocket as WebSocket } from "websocket"
 
 const ws = new WebSocket("ws://localhost:5000", "echo-protocol");
 
