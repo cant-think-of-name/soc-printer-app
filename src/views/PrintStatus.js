@@ -35,45 +35,45 @@ class PrintStatus extends React.Component {
           </Grid>
         </AppBar>
         {!uploading && !printing &&
-              <Grid container justify="center" wrap="wrap">
-                <Grid item>
-                  <Typography variant="h6">Nothing to be printed currently.</Typography>
-                </Grid>
-              </Grid>}
+        <Grid container justify="center" wrap="wrap">
+          <Grid item>
+            <Typography variant="h6">Nothing to be printed currently.</Typography>
+          </Grid>
+        </Grid>}
         {uploading && !printing &&
-              <Grid container justify="center" wrap="wrap">
-                <Grid item xs={2}>
-                  <Typography variant="h6">Uploading {filesToBePrinted} file(s)</Typography>
-                </Grid>
-                <Grid item>
-                  <HourglassEmptyIcon/>
-                </Grid>
-              </Grid>}
+        <Grid container justify="center" wrap="wrap">
+          <Grid item xs={2}>
+            <Typography variant="h6">Uploading {filesToBePrinted} file(s)</Typography>
+          </Grid>
+          <Grid item>
+            <HourglassEmptyIcon/>
+          </Grid>
+        </Grid>}
         {!uploading && printing &&
-              <div>
-                <Grid container justify="center" wrap="wrap">
-                  <Grid item xs={2}>
-                    <Typography variant="h6">Uploaded file(s)</Typography>
-                  </Grid>
-                  <Grid item>
-                    <DoneOutlineIcon/>
-                  </Grid>
-                </Grid>
-                <Grid container justify="center" wrap="wrap">
-                  <Grid item xs={2}>
-                    <Typography variant="h6">Printing {filesToBePrinted} file(s)</Typography>
-                  </Grid>
-                  <Grid item>
-                    <HourglassEmptyIcon/>
-                  </Grid>
-                </Grid>
-              </div>}
+        <div>
+          <Grid container justify="center" wrap="wrap">
+            <Grid item xs={2}>
+              <Typography variant="h6">Uploaded file(s)</Typography>
+            </Grid>
+            <Grid item>
+              <DoneOutlineIcon/>
+            </Grid>
+          </Grid>
+          <Grid container justify="center" wrap="wrap">
+            <Grid item xs={2}>
+              <Typography variant="h6">Printing {filesToBePrinted} file(s)</Typography>
+            </Grid>
+            <Grid item>
+              <HourglassEmptyIcon/>
+            </Grid>
+          </Grid>
+        </div>}
         {(uploading || printing ) &&
-              <Grid container justify="center" wrap="wrap" style={{ marginTop: '20px' }}>
-                <Grid item>
-                  <Button variant="outlined" color="primary">Cancel</Button>
-                </Grid>
-              </Grid>}
+        <Grid container justify="center" wrap="wrap" style={{ marginTop: '20px' }}>
+          <Grid item>
+            <Button variant="outlined" color="primary">Cancel</Button>
+          </Grid>
+        </Grid>}
       </Paper>
     );
   }

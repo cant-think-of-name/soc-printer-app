@@ -38,36 +38,36 @@ class Footer extends React.Component {
     return (
       <Box className={classes.root}>
         <footer className={classes.footer} >
-              Credits to:
+          Credits to:
           <Box display="flex" justifyContent="space-between">
             <Box display="flex" flexDirection="column">
-                Chow Jia Ying:
+              Chow Jia Ying:
               <Link href="https://www.github.com/C-likethis123" >
-                  GitHub
+                GitHub
               </Link>
               <Link href="https://c-likethis123.github.io/website/" >
-                  Website
+                Website
               </Link>
             </Box>
             <Box display="flex" flexDirection="column">
-                Lim Kang Yee:
+              Lim Kang Yee:
               <Link href="https://github.com/kangyeelim" >
-                  GitHub
+                GitHub
               </Link>
               <Link href="https://kangyeelim.github.io/aboutme/" >
-                  Website
+                Website
               </Link>
             </Box>
             <Box display="flex" flexDirection="column">
-                Evon Dong Bing Bing:
+              Evon Dong Bing Bing:
               <Link href="https://github.com/EvonDong" >
-                  GitHub
+                GitHub
               </Link>
             </Box>
             <Box display="flex" flexDirection="column">
-                Michaela Tang:
+              Michaela Tang:
               <Link href="https://github.com/MichaelaTSH" >
-                    GitHub
+                GitHub
               </Link>
             </Box>
           </Box>
